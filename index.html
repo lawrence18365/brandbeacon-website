@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrustGuard - Your Online Reputation Experts</title>
+    <meta description="TrustGuard is a leading online reputation management company that helps individuals and businesses build, maintain, and protect their digital presence.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        body, html {
             font-family: 'Poppins', sans-serif;
             color: #333;
             line-height: 1.6;
         }
-        .container {
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        a:hover {
+            color: #1a1d23;
+        }
+
+        /* Container Styles */
+       .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        /* Header Styles */
         header {
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -31,18 +48,25 @@
             align-items: center;
             padding: 20px 0;
         }
-        .logo {
+       .logo {
             font-size: 24px;
             font-weight: 700;
             color: #2c3e50;
         }
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 600;
+       .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .hero {
+       .nav-links a {
+            margin-left: 20px;
+        }
+       .nav-links a:hover {
+            color: #1a1d23;
+        }
+
+        /* Hero Styles */
+       .hero {
             height: 100vh;
             background-image: url('https://source.unsplash.com/random/1600x900?office');
             background-size: cover;
@@ -51,8 +75,9 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
+            color: #fff;
         }
-        .hero::before {
+       .hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -61,10 +86,9 @@
             bottom: 0;
             background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.6));
         }
-        .hero-content {
+       .hero-content {
             position: relative;
             z-index: 1;
-            color: #fff;
             max-width: 600px;
             padding: 20px;
         }
@@ -74,12 +98,12 @@
             margin-bottom: 20px;
             line-height: 1.2;
         }
-        .hero p {
+       .hero p {
             font-size: 18px;
             font-weight: 300;
             margin-bottom: 30px;
         }
-        .cta-button {
+       .cta-button {
             font-size: 18px;
             font-weight: 600;
             color: #fff;
@@ -92,27 +116,29 @@
             text-decoration: none;
             display: inline-block;
         }
-        .cta-button:hover {
+       .cta-button:hover {
             background-color: #c0392b;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .services {
+
+        /* Services Styles */
+       .services {
             padding: 100px 0;
             background-color: #f8f9fa;
         }
-        .services h2, .about h2, .testimonials h2 {
+       .services h2 {
             text-align: center;
             color: #2c3e50;
             margin-bottom: 50px;
             font-size: 36px;
         }
-        .service-grid {
+       .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        .service-card {
+       .service-card {
             background-color: #fff;
             border-radius: 8px;
             padding: 30px;
@@ -120,83 +146,93 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-        .service-card:hover {
+       .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
-        .service-card img {
+       .service-card img {
             width: 80px;
             height: 80px;
             margin-bottom: 20px;
+            border-radius: 50%;
         }
-        .service-card h3 {
+       .service-card h3 {
             color: #2c3e50;
             margin-bottom: 15px;
             font-size: 24px;
         }
-        .about {
+
+        /* About Styles */
+       .about {
             padding: 100px 0;
             background-color: #fff;
         }
-        .about-content {
+       .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        .about-image {
+       .about-image {
             flex: 1;
         }
-        .about-image img {
+       .about-image img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .about-text {
+       .about-text {
             flex: 1;
         }
-        .testimonials {
+
+        /* Testimonials Styles */
+       .testimonials {
             padding: 100px 0;
             background-color: #f8f9fa;
         }
-        .testimonial-grid {
+       .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        .testimonial-card {
+       .testimonial-card {
             background-color: #fff;
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .testimonial-card img {
+       .testimonial-card img {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             margin-bottom: 15px;
         }
-        .testimonial-card h4 {
+       .testimonial-card h4 {
             font-size: 18px;
             margin-bottom: 10px;
         }
-        .testimonial-card p {
+       .testimonial-card p {
             font-style: italic;
         }
-        .contact {
+
+        /* Contact Styles */
+       .contact {
             padding: 100px 0;
             background-color: #2c3e50;
             color: #fff;
         }
-        .contact-content {
+       .contact-content {
             display: flex;
             justify-content: space-between;
             gap: 50px;
         }
-        .contact-info, .contact-form {
+       .contact-info {
             flex: 1;
         }
-        .contact-form input,
-        .contact-form textarea {
+       .contact-form {
+            flex: 1;
+        }
+       .contact-form input,
+       .contact-form textarea {
             width: 100%;
             padding: 15px;
             margin-bottom: 20px;
@@ -204,7 +240,7 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        .contact-form button {
+       .contact-form button {
             background-color: #e74c3c;
             color: #fff;
             border: none;
@@ -215,9 +251,11 @@
             font-size: 18px;
             font-weight: 600;
         }
-        .contact-form button:hover {
+       .contact-form button:hover {
             background-color: #c0392b;
         }
+
+        /* Footer Styles */
         footer {
             background-color: #34495e;
             color: #ecf0f1;
@@ -255,91 +293,6 @@
             <h2>Our Comprehensive Services</h2>
             <div class="service-grid">
                 <div class="service-card">
-                    <img src="/api/placeholder/80" alt="Monitoring icon">
-                    <h3>24/7 Reputation Monitoring</h3>
-                    <p>We vigilantly monitor your online presence across all platforms to catch and address potential issues before they escalate.</p>
-                </div>
-                <div class="service-card">
-                    <img src="/api/placeholder/80" alt="Content icon">
-                    <h3>Strategic Content Creation</h3>
-                    <p>Our team of expert writers crafts compelling content to boost your positive online presence and showcase your expertise.</p>
-                </div>
-                <div class="service-card">
-                    <img src="/api/placeholder/80" alt="Review icon">
-                    <h3>Review Management</h3>
-                    <p>We help you generate positive reviews and provide guidance on professionally addressing negative feedback.</p>
-                </div>
-                <div class="service-card">
-                    <img src="/api/placeholder/80" alt="Crisis icon">
-                    <h3>Crisis Management</h3>
-                    <p>Our rapid response team is always ready to mitigate damage and implement strategic solutions during reputation crises.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <img src="/api/placeholder/80
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About TrustGuard</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Team of reputation management experts">
-                </div>
-                <div class="about-text">
-                    <p>At TrustGuard, we understand that your online reputation is crucial to your personal and professional success. Our team of seasoned experts combines years of experience with cutting-edge technology to deliver unparalleled reputation management services.</p>
-                    <p>We've helped thousands of individuals and businesses build, maintain, and recover their online reputations. Our tailored strategies ensure that your digital presence accurately reflects your true value and expertise.</p>
-                    <p>With TrustGuard, you're not just getting a service – you're gaining a dedicated partner committed to your long-term success in the digital world.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <img src="/api/placeholder/60" alt="John Doe">
-                    <h4>John Doe, CEO</h4>
-                    <p>"TrustGuard transformed our online presence. Their proactive approach and expert strategies have been invaluable to our business growth."</p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="/api/placeholder/60" alt="Jane Smith">
-                    <h4>Jane Smith, Entrepreneur</h4>
-                    <p>"I can't thank TrustGuard enough for helping me recover from a reputation crisis. Their team was professional, responsive, and highly effective."</p>
-                </div>
-                <div class="testimonial-card">
-                    <img src="/api/placeholder/60" alt="Mike Johnson">
-                    <h4>Mike Johnson, Public Figure</h4>
-                    <p>"As a public figure, my online reputation is critical. TrustGuard ensures that my digital presence always reflects my true values and achievements."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Ready to take control of your online reputation?</h3>
-                    <p>Our experts are here to help you build and maintain a positive digital presence. Contact us today for a free consultation and see how we can protect your most valuable asset – your reputation.</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Email: info@trustguard.com</p>
-                    <p>Address: 123 Reputation Ave, Digital City, ON 12345</p>
-                </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 TrustGuard Online Reputation Management. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+Here is the updated code with my suggestions implemented:
