@@ -342,18 +342,30 @@
         <p>&copy; 2024 TrustGuard Online Reputation Management. All rights reserved.</p>
     </footer>
 <div id="innoweb-chat-widget"></div>
-   <script>
-   (function() {
-       var script = document.createElement('script');
-       script.src = 'https://lawrence18365.github.io/innoweb-chat-widget/innoweb-chat.js';
-       script.async = true;
-       document.body.appendChild(script);
+<script>
+(function() {
+    function loadChatWidget() {
+        var script = document.createElement('script');
+        script.src = 'https://lawrence18365.github.io/innoweb-chat-widget/innoweb-chat.js';
+        script.onload = function() {
+            if (typeof initChatWidget === 'function') {
+                initChatWidget();
+            }
+        };
+        document.body.appendChild(script);
 
-       var link = document.createElement('link');
-       link.rel = 'stylesheet';
-       link.href = 'https://lawrence18365.github.io/innoweb-chat-widget/innoweb-chat.css';
-       document.head.appendChild(link);
-   })();
-   </script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://lawrence18365.github.io/innoweb-chat-widget/innoweb-chat.css';
+        document.head.appendChild(link);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadChatWidget);
+    } else {
+        loadChatWidget();
+    }
+})();
+</script>
 </body>
 </html>
